@@ -142,7 +142,7 @@ app.post("/signUp", async (request, response) => {
 app.listen(portNumber);
 
 
-process.stdout.write(`Web server starting and running at http://localhost:${portNumber}\n`);
+process.stdout.write(`Web server starting and running at port: ${portNumber}\n`);
 
 
 
