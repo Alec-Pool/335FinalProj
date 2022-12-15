@@ -1,0 +1,44 @@
+
+html {
+    font-size: 14px;
+}
+
+
+body {
+    font-family: sans-serif;
+    font-size: 1.5rem;
+
+    color: black;
+    background-color: white;
+
+}
+
+
+
+#currUser {
+    font-weight: bold;
+    font-size: 6rem;
+    color: red;
+    margin-left: 1rem;
+    margin-top: .5rem;
+
+}
+
+#submit {
+    font-size: 4rem;
+    height: 2rem;
+    width: 8rem;
+
+}
+
+
+#reset {
+    font-size: 4rem;
+    height: 2rem;
+    width: 8rem;
+
+}
+
+h1 {
+    font-style: italic;
+}

@@ -1,0 +1,86 @@
+<!-- DO NOT MODIFY THIS FILE -->
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="/css/style.css" type="text/css"/>
+	<title>SpaceX Launches</title>
+	
+
+</head>
+
+<body>
+	<h1>Welcome to SpaceX Launches</h1>
+
+	
+	<h2>Login</h1>
+	<form action= <%- login %> method="post">
+		<fieldset>
+            <legend>
+                
+            </legend>
+            
+			<label>Username: <input type="text" name="username"/></label>
+			<label>Password: <input type="text" name="password"/></label>
+
+		</fieldset>
+
+		<br>
+		<input type="reset" id="reset"/>
+		<input type="submit" value="Submit Request" id="submit"/>
+	</form>
+	<hr>
+
+	<br><br>
+
+	<h2>Sign Up</h1>
+	<form action= <%- signUp %> method="post">
+		<fieldset>
+            <legend>
+                
+            </legend>
+            
+			<label>Username: <input type="text" name="username"/></label>
+			<label>Password: <input type="text" name="password"/></label>
+
+		</fieldset>
+
+		<br>
+		<input type="reset" id="reset"/>
+		<input type="submit" value="Submit Request" id="submit"/>
+	</form>
+	<hr>
+
+	<br><br>
+
+	<h2>Current User: </h1>
+	<div id="currUser">
+		<%- status %>
+	</div>
+
+	<br><br>
+
+	<h2>Number of Crewmembers on latest SpaceX Mission: </h1>
+	<div>
+		<%- launchData %>
+	</div>
+	
+</body>
+
+</html>
+
+<!--
+
+	/apply
+	/processApplication
+
+	/reviewApplication
+	/processReviewApplication
+
+	/adminGFA
+	/processAdminGFA
+
+	/adminRemove
+	/processAdminRemove
+-->
