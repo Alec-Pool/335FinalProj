@@ -118,6 +118,16 @@ app.post("/login", async (request, response) => {
     response.redirect("/");
 });
 
+
+async function loginUser(client, databaseAndCollection, inputUsername, inputPassword) {
+    let filter = {username: inputUsername, password: inputPassword};
+    const result = await client.db(databaseAndCollection.db)
+                        .collection(databaseAndCollection.collection)
+                        .findOne(filter);
+    return result;
+}
+
+
 /*
 
 app.post("/signUp", async (request, response) => {
@@ -194,13 +204,6 @@ async function createUser(client, databaseAndCollection, username, password) {
 }
 
 
-async function loginUser(client, databaseAndCollection, inputUsername, inputPassword) {
-    let filter = {username: inputUsername, password: inputPassword};
-    const result = await client.db(databaseAndCollection.db)
-                        .collection(databaseAndCollection.collection)
-                        .findOne(filter);
-    return result;
-}
 
 
 
