@@ -71,7 +71,7 @@ app.post("/signUp", (request, response) => {
 
 
 
-app.post("/login", async (request, response) => {
+app.get("/login", async (request, response) => {
     let {username, password} = request.body;
 
    
