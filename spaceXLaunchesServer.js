@@ -26,7 +26,7 @@ let status = "None";
 
 
 
-app.post("/signUp", async (request, response) => {
+app.get("/signUp", async (request, response) => {
     
 
     let {username, password} = request.body;
@@ -45,7 +45,7 @@ app.post("/signUp", async (request, response) => {
 
 
 
-app.post("/login", async (request, response) => {
+app.get("/login", async (request, response) => {
     let {username, password} = request.body;
 
    
@@ -92,7 +92,7 @@ const uri = `mongodb+srv://${username}:${password}@cluster0.zsgbhxu.mongodb.net/
 
 console.log(uri);
 console.log("pass: " + password);
-console.log("user: "+username);
+console.log("user: "+ username);
 
 
 let client = null;
