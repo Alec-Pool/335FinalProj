@@ -84,7 +84,7 @@ main();
 
 
 
-/*
+
 
 
 
@@ -118,7 +118,7 @@ app.post("/login", async (request, response) => {
     response.redirect("/");
 });
 
-
+/*
 
 app.post("/signUp", async (request, response) => {
     
