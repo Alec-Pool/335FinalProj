@@ -15,6 +15,7 @@ process.stdin.setEncoding("utf8");
 
 
 process.stdout.write("Hello World!");
+console.log("hello world");
 
 
 
