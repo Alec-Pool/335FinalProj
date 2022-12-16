@@ -133,8 +133,8 @@ async function main() {
     launchData = await launchResponse.json();
 }
 
-main();
 
+main().catch(console.error);
 
 
 /*
