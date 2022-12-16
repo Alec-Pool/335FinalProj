@@ -1,12 +1,8 @@
-
-
-
 const express = require("express"); 
 const app = express(); 
 const bodyParser = require("body-parser");
 const cors = require('cors')
 const portNumber = process.env.PORT || 5000;
-//const MongoClient = require('mongodb').MongoClient;
 
 const path = require("path");
 
@@ -14,12 +10,6 @@ const path = require("path");
 process.stdin.setEncoding("utf8");
 
 
-process.stdout.write("Hello World!");
-console.log("hello world");
-
-
-
-//app.use(express.json());
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({extended:false}));
@@ -36,7 +26,7 @@ let status = "None";
 
 
 
-app.get("/signUp", async (request, response) => {
+app.post("/signUp", async (request, response) => {
     
 
     let {username, password} = request.body;
@@ -48,7 +38,6 @@ app.get("/signUp", async (request, response) => {
         console.error(err);
     }
     
-   
 
     response.redirect("/");
 });
@@ -56,7 +45,7 @@ app.get("/signUp", async (request, response) => {
 
 
 
-app.get("/login", async (request, response) => {
+app.post("/login", async (request, response) => {
     let {username, password} = request.body;
 
    
@@ -69,8 +58,8 @@ app.get("/login", async (request, response) => {
 
     if (result) {
         //process.stdout.write(JSON.stringify(result));
-        //status = result["username"];
-        status = "TEST";
+        status = result["username"];
+        //status = "TEST";
     } else {
         process.stdout.write("\nUser Doesn't Exist\n");
         status = "User Doesn't Exist";
@@ -80,7 +69,7 @@ app.get("/login", async (request, response) => {
     response.redirect("/");
 });
 
-
+process.stdout.write("\nApplication listening on port: " + portNumber + "\n");
 app.listen(portNumber);
 
 
@@ -101,8 +90,10 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const uri = `mongodb+srv://${username}:${password}@cluster0.zsgbhxu.mongodb.net/?retryWrites=true&w=majority`
 
+let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
 try {
-    const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+    client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 }
 catch (err) {
     let msg = err.message;
@@ -128,12 +119,11 @@ main().catch(console.error);
 
 
 
-
 app.get("/", (request, response) => {
     let baseURL = "http://" + request.get('host');
     //let baseURL = request.url;
     //process.stdout.write(String(baseURL) + "\n");
-    console.log("hello world");
+    //console.log("hello world");
 
     let variables = {}
 
@@ -156,7 +146,7 @@ app.get("/", (request, response) => {
     }
     
 
-    //process.stdout.write(JSON.stringify(launchData));
+    process.stdout.write("\nSpaceX Raw Data:\n" + JSON.stringify(launchData));
 
     response.render("index", variables);
 });
