@@ -119,6 +119,7 @@ try {
 catch (err) {
     let msg = err.message;
     process.stdout.write(msg);
+    console.error(err);
 }
 
 
