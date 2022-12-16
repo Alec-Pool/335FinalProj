@@ -48,9 +48,6 @@ app.get("/signUp", async (request, response) => {
         console.error(err);
     }
     
-
-    //process.stdout.write(JSON.stringify(result));
-
    
 
     response.redirect("/");
@@ -199,48 +196,6 @@ async function createUser(client, databaseAndCollection, username, password) {
 
 
 
-
-/*
-
-*/
-
-
-/////////////////////////////////
-
-
-
-
-
-
-
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.listen(portNumber);
-
-
-//app.listen(portNumber);
-
-
-//process.stdout.write(`Web server starting and running at port: ${portNumber}\n`);
-
-
-
 const prompt = "Stop to shutdown the server: ";
 process.stdout.write(prompt);
 
@@ -272,15 +227,6 @@ process.stdin.on("readable", function () {
 
 
 
-
-
-
-
-*/
-
-//exports.start = function start() {
-//    app.listen(portNumber);
-//}
 
 
 
