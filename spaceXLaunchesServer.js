@@ -1,29 +1,28 @@
 
 
+
+const express = require("express"); 
+const app = express(); 
+const bodyParser = require("body-parser");
+const cors = require('cors')
+const portNumber = process.env.PORT || 5000;
+
+
+const path = require("path");
+
+
 process.stdin.setEncoding("utf8");
 
 
 
 
-const http = require('http');
-const portNumber = process.env.PORT || 5000;
 
 
+//app.use(express.json());
+app.use(bodyParser.json());
 
-let fs = require("fs");
-
-const express = require("express"); /* Accessing express module */
-const app = express(); 
-
-const path = require("path");
-
-
-
-
-
-const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended:false}));
-
+app.use(cors());
 
 app.set("views", path.resolve(__dirname, "templates"));
 app.set("view engine", "ejs");
@@ -54,8 +53,8 @@ let launchData = "";
 
 async function main() {
     await client.connect();
-    //let launchResponse = await fetch("https://api.spacexdata.com/v5/launches/latest");
-    //launchData = await launchResponse.json();
+    let launchResponse = await fetch("https://api.spacexdata.com/v5/launches/latest");
+    launchData = await launchResponse.json();
 }
 
 main();
@@ -84,12 +83,10 @@ app.get("/", (request, response) => {
         'login': baseURL + "/login",
         'signUp': baseURL + "/signUp",
         'status': status,
-        'launchData' : "SpaceX Crew Members: " //+ launchData["crew"].length
+        'launchData' : "SpaceX Crew Members: " + launchData["crew"].length
     }
 
     //process.stdout.write(JSON.stringify(launchData));
-
-    
 
     response.render("index", variables);
 });
@@ -142,7 +139,7 @@ app.listen(portNumber);
 //app.listen(portNumber);
 
 
-process.stdout.write(`Web server starting and running at port: ${portNumber}\n`);
+//process.stdout.write(`Web server starting and running at port: ${portNumber}\n`);
 
 
 
@@ -204,9 +201,9 @@ async function loginUser(client, databaseAndCollection, inputUsername, inputPass
 
 
 
-exports.start = function start() {
-    app.listen(portNumber);
-}
+//exports.start = function start() {
+//    app.listen(portNumber);
+//}
 
 
 
