@@ -55,6 +55,29 @@ app.get("/", (request, response) => {
 
 
 
+app.post("/signUp", (request, response) => {
+    
+
+    let {username, password} = request.body;
+
+    
+    result = "hello";//await createUser(client, databaseAndCollection, username, password)
+
+    //process.stdout.write(JSON.stringify(result));
+
+    let variables = {
+        
+    }
+
+    response.redirect("/");
+});
+
+
+app.listen(portNumber);
+
+
+
+
 
 //////// Mongo Setup
 
@@ -95,26 +118,6 @@ main();
 
 
 
-
-app.post("/signUp", (request, response) => {
-    
-
-    let {username, password} = request.body;
-
-    
-    result = "hello";//await createUser(client, databaseAndCollection, username, password)
-
-    //process.stdout.write(JSON.stringify(result));
-
-    let variables = {
-        
-    }
-
-    response.redirect("/");
-});
-
-
-app.listen(portNumber);
 
 
 /*
