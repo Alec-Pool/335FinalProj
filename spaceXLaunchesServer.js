@@ -60,7 +60,7 @@ app.listen(portNumber);
 
 //////// Mongo Setup
 
-
+/*
 require("dotenv").config({ path: path.resolve(__dirname, 'credentialsDontPost/.env') }) 
 
 const username = process.env.MONGO_DB_USERNAME;
@@ -87,7 +87,7 @@ main();
 
 
 
-
+*/
 
 
 /////////////////////////////////
