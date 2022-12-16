@@ -54,8 +54,8 @@ let launchData = "";
 
 async function main() {
     await client.connect();
-    let launchResponse = await fetch("https://api.spacexdata.com/v5/launches/latest");
-    launchData = await launchResponse.json();
+    //let launchResponse = await fetch("https://api.spacexdata.com/v5/launches/latest");
+    //launchData = await launchResponse.json();
 }
 
 main();
@@ -84,7 +84,7 @@ app.get("/", (request, response) => {
         'login': baseURL + "/login",
         'signUp': baseURL + "/signUp",
         'status': status,
-        'launchData' : "SpaceX Crew Members: " + launchData["crew"].length
+        'launchData' : "SpaceX Crew Members: " //+ launchData["crew"].length
     }
 
     //process.stdout.write(JSON.stringify(launchData));
@@ -136,7 +136,7 @@ app.post("/signUp", async (request, response) => {
 });
 
 
-
+app.listen(portNumber);
 
 
 //app.listen(portNumber);
