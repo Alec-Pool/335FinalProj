@@ -51,7 +51,7 @@ app.get("/", (request, response) => {
 });
 
 
-app.post("/signUp", (request, response) => {
+app.get("/signUp", (request, response) => {
     
 
     let {username, password} = request.body;
