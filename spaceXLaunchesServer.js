@@ -51,7 +51,6 @@ app.get("/", (request, response) => {
 });
 
 
-app.listen(portNumber);
 
 
 
@@ -115,6 +114,7 @@ app.post("/signUp", async (request, response) => {
 });
 
 
+app.listen(portNumber);
 
 
 /*
