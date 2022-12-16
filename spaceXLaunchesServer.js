@@ -76,11 +76,12 @@ app.post("/login", async (request, response) => {
 
    
     
-    result = await loginUser(client, databaseAndCollection, username, password);
+    result = "hello"; //await loginUser(client, databaseAndCollection, username, password);
 
     if (result) {
         //process.stdout.write(JSON.stringify(result));
-        status = result["username"];
+        //status = result["username"];
+        status = "TEST";
     } else {
         process.stdout.write("\nUser Doesn't Exist\n");
         status = "User Doesn't Exist";
