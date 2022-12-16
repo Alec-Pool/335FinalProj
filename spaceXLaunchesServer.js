@@ -52,6 +52,8 @@ app.get("/", (request, response) => {
 
 
 
+/*
+
 
 
 
@@ -71,7 +73,7 @@ app.get("/signUp", (request, response) => {
 
     response.redirect("/");
 });
-
+*/
 
 app.listen(portNumber);
 
