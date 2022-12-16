@@ -34,22 +34,6 @@ app.use(express.static(__dirname + '/public'));
 let status = "None";
 
 
-app.get("/", (request, response) => {
-    let baseURL = "http://" + request.get('host');
-    //let baseURL = request.url;
-    //process.stdout.write(String(baseURL) + "\n");
-    console.log("hello world");
-    let variables = {
-        'login': baseURL + "/login",
-        'signUp': baseURL + "/signUp",
-        'status': status,
-        'launchData' : "SpaceX Crew Members: " //+ launchData["crew"].length
-    }
-
-    //process.stdout.write(JSON.stringify(launchData));
-
-    response.render("index", variables);
-});
 
 
 app.get("/signUp", async (request, response) => {
@@ -135,6 +119,28 @@ async function main() {
 
 
 main().catch(console.error);
+
+
+
+
+
+
+app.get("/", (request, response) => {
+    let baseURL = "http://" + request.get('host');
+    //let baseURL = request.url;
+    //process.stdout.write(String(baseURL) + "\n");
+    console.log("hello world");
+    let variables = {
+        'login': baseURL + "/login",
+        'signUp': baseURL + "/signUp",
+        'status': status,
+        'launchData' : "SpaceX Crew Members: " //+ launchData["crew"].length
+    }
+
+    //process.stdout.write(JSON.stringify(launchData));
+
+    response.render("index", variables);
+});
 
 
 
