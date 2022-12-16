@@ -100,7 +100,7 @@ app.listen(portNumber);
 
 //////// Mongo Setup
 
-/*
+
 require("dotenv").config({ path: path.resolve(__dirname, 'credentialsDontPost/.env') }) 
 
 const username = process.env.MONGO_DB_USERNAME;
@@ -114,7 +114,7 @@ const uri = `mongodb+srv://${username}:${password}@cluster0.zsgbhxu.mongodb.net/
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 let launchData = "";
-
+/*
 async function main() {
     await client.connect();
     let launchResponse = await fetch("https://api.spacexdata.com/v5/launches/latest");
