@@ -90,7 +90,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const uri = `mongodb+srv://${username}:${password}@cluster0.zsgbhxu.mongodb.net/?retryWrites=true&w=majority`
 
-console.log(uri);
+console.log(uri, username, password);
 
 
 let client = null;
