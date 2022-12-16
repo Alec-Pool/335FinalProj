@@ -130,12 +130,27 @@ app.get("/", (request, response) => {
     //let baseURL = request.url;
     //process.stdout.write(String(baseURL) + "\n");
     console.log("hello world");
-    let variables = {
-        'login': baseURL + "/login",
-        'signUp': baseURL + "/signUp",
-        'status': status,
-        'launchData' : "SpaceX Crew Members: " + launchData["crew"].length
+
+    let variables = {}
+
+    try {
+        variables = {
+            'login': baseURL + "/login",
+            'signUp': baseURL + "/signUp",
+            'status': status,
+            'launchData' : "SpaceX Crew Members: " + launchData["crew"].length
+        }
     }
+
+    catch (err) {
+        variables = {
+            'login': baseURL + "/login",
+            'signUp': baseURL + "/signUp",
+            'status': status,
+            'launchData' : "SpaceX Crew Members: " + "API Error"
+        }
+    }
+    
 
     //process.stdout.write(JSON.stringify(launchData));
 
