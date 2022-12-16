@@ -90,7 +90,7 @@ const { MongoClient, ServerApiVersion } = require('mongodb');
 
 const uri = `mongodb+srv://${username}:${password}@cluster0.zsgbhxu.mongodb.net/?retryWrites=true&w=majority`
 
-let client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+let client = null;
 
 try {
     client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
@@ -99,6 +99,7 @@ catch (err) {
     let msg = err.message;
     process.stdout.write(msg);
     console.error(err);
+    process.exit(1);
 }
 
 
