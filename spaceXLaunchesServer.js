@@ -52,13 +52,13 @@ app.get("/", (request, response) => {
 });
 
 
-app.get("/signUp", (request, response) => {
+app.get("/signUp", async (request, response) => {
     
 
     let {username, password} = request.body;
 
     
-    result = "hello";//await createUser(client, databaseAndCollection, username, password)
+    result = await createUser(client, databaseAndCollection, username, password)
 
     //process.stdout.write(JSON.stringify(result));
 
@@ -77,7 +77,7 @@ app.get("/login", async (request, response) => {
 
    
     
-    result = "hello"; //await loginUser(client, databaseAndCollection, username, password);
+    result = await loginUser(client, databaseAndCollection, username, password);
 
     if (result) {
         //process.stdout.write(JSON.stringify(result));
@@ -137,32 +137,6 @@ async function main() {
 main().catch(console.error);
 
 
-/*
-
-*/
-
-
-/////////////////////////////////
-
-
-
-
-
-
-
-
-/*
-
-
-
-
-
-
-
-
-
-
-
 
 
 async function loginUser(client, databaseAndCollection, inputUsername, inputPassword) {
@@ -190,6 +164,37 @@ async function createUser(client, databaseAndCollection, username, password) {
 
     //process.stdout.write(`\nApplication entry created with id ${result.insertedId}\n`);
 }
+
+
+
+
+
+
+
+
+/*
+
+*/
+
+
+/////////////////////////////////
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+
+
+
+
 
 
 
