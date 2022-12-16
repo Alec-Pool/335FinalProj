@@ -30,6 +30,31 @@ app.set("view engine", "ejs");
 
 app.use(express.static(__dirname + '/public'));
 
+let status = "None";
+
+
+app.get("/", (request, response) => {
+    let baseURL = "http://" + request.get('host');
+    //let baseURL = request.url;
+    //process.stdout.write(String(baseURL) + "\n");
+
+    let variables = {
+        'login': baseURL + "/login",
+        'signUp': baseURL + "/signUp",
+        'status': status,
+        'launchData' : "SpaceX Crew Members: " //+ launchData["crew"].length
+    }
+
+    //process.stdout.write(JSON.stringify(launchData));
+
+    response.render("index", variables);
+});
+
+
+app.listen(portNumber);
+
+
+/*
 
 
 //////// Mongo Setup
@@ -40,10 +65,8 @@ require("dotenv").config({ path: path.resolve(__dirname, 'credentialsDontPost/.e
 const username = process.env.MONGO_DB_USERNAME;
 const password = process.env.MONGO_DB_PASSWORD;
 
-/* Our database and collection */
 const databaseAndCollection = {db: process.env.MONGO_DB_NAME, collection: process.env.MONGO_COLLECTION};
 
-/****** DO NOT MODIFY FROM THIS POINT ONE ******/
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = `mongodb+srv://${username}:${password}@cluster0.zsgbhxu.mongodb.net/?retryWrites=true&w=majority`
    
@@ -64,7 +87,6 @@ main();
 
 
 
-let status = "None";
 
 
 /////////////////////////////////
@@ -73,23 +95,6 @@ let status = "None";
 
 
 
-
-app.get("/", (request, response) => {
-    let baseURL = "http://" + request.get('host');
-    //let baseURL = request.url;
-    //process.stdout.write(String(baseURL) + "\n");
-
-    let variables = {
-        'login': baseURL + "/login",
-        'signUp': baseURL + "/signUp",
-        'status': status,
-        'launchData' : "SpaceX Crew Members: " + launchData["crew"].length
-    }
-
-    //process.stdout.write(JSON.stringify(launchData));
-
-    response.render("index", variables);
-});
 
 
 
@@ -199,7 +204,7 @@ async function loginUser(client, databaseAndCollection, inputUsername, inputPass
 
 
 
-
+*/
 
 //exports.start = function start() {
 //    app.listen(portNumber);
