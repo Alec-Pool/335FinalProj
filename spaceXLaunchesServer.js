@@ -96,7 +96,7 @@ main();
 
 
 
-app.post("/signUp", async (request, response) => {
+app.post("/signUp", (request, response) => {
     
 
     let {username, password} = request.body;
