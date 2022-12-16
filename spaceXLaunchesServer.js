@@ -139,7 +139,7 @@ app.post("/signUp", async (request, response) => {
 
 
 
-app.listen(portNumber);
+//app.listen(portNumber);
 
 
 process.stdout.write(`Web server starting and running at port: ${portNumber}\n`);
@@ -204,6 +204,9 @@ async function loginUser(client, databaseAndCollection, inputUsername, inputPass
 
 
 
+exports.start = function start() {
+    app.listen(portNumber);
+}
 
 
 
