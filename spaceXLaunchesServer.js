@@ -26,7 +26,7 @@ let status = "None";
 
 
 
-app.get("/signUp", async (request, response) => {
+app.post("/signUp", async (request, response) => {
     
 
     let {username, password} = request.body;
@@ -45,7 +45,7 @@ app.get("/signUp", async (request, response) => {
 
 
 
-app.get("/login", async (request, response) => {
+app.post("/login", async (request, response) => {
     let {username, password} = request.body;
 
    
