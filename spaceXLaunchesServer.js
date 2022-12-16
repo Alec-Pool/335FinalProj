@@ -81,18 +81,18 @@ app.listen(portNumber);
 
 require("dotenv").config({ path: path.resolve(__dirname, 'credentialsDontPost/.env') }) 
 
-const username = process.env.MONGO_DB_USERNAME;
-const password = process.env.MONGO_DB_PASSWORD;
+const USERNAME = process.env.MONGO_DB_USERNAME;
+const PASSWORD = process.env.MONGO_DB_PASSWORD;
 
 const databaseAndCollection = {db: process.env.MONGO_DB_NAME, collection: process.env.MONGO_COLLECTION};
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-const uri = `mongodb+srv://${username}:${password}@cluster0.zsgbhxu.mongodb.net/?retryWrites=true&w=majority`
+const uri = `mongodb+srv://${USERNAME}:${PASSWORD}@cluster0.zsgbhxu.mongodb.net/?retryWrites=true&w=majority`
 
-console.log(uri);
-console.log("pass: " + password);
-console.log("user: "+ username);
+//console.log(uri);
+//console.log("pass: " + PASSWORD);
+//console.log("user: "+ USERNAME);
 
 
 let client = null;
