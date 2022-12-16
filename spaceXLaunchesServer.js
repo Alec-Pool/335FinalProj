@@ -41,14 +41,17 @@ app.get("/signUp", async (request, response) => {
 
     let {username, password} = request.body;
 
+    try{
+        result = await createUser(client, databaseAndCollection, username, password);
+    }
+    catch (err) {
+        console.error(err);
+    }
     
-    result = await createUser(client, databaseAndCollection, username, password)
 
     //process.stdout.write(JSON.stringify(result));
 
-    let variables = {
-        
-    }
+   
 
     response.redirect("/");
 });
@@ -60,8 +63,12 @@ app.get("/login", async (request, response) => {
     let {username, password} = request.body;
 
    
-    
-    result = await loginUser(client, databaseAndCollection, username, password);
+    try {
+        result = await loginUser(client, databaseAndCollection, username, password);
+    }
+    catch (err) {
+        console.error(err);
+    }
 
     if (result) {
         //process.stdout.write(JSON.stringify(result));
