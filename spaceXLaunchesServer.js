@@ -134,7 +134,7 @@ app.get("/", (request, response) => {
         'login': baseURL + "/login",
         'signUp': baseURL + "/signUp",
         'status': status,
-        'launchData' : "SpaceX Crew Members: " //+ launchData["crew"].length
+        'launchData' : "SpaceX Crew Members: " + launchData["crew"].length
     }
 
     //process.stdout.write(JSON.stringify(launchData));
