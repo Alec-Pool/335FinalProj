@@ -52,29 +52,6 @@ app.get("/", (request, response) => {
 
 
 
-/*
-
-
-
-
-app.get("/signUp", (request, response) => {
-    
-
-    let {username, password} = request.body;
-
-    
-    result = "hello";//await createUser(client, databaseAndCollection, username, password)
-
-    //process.stdout.write(JSON.stringify(result));
-
-    let variables = {
-        
-    }
-
-    response.redirect("/");
-});
-*/
-
 app.listen(portNumber);
 
 
@@ -125,6 +102,29 @@ main();
 /*
 
 
+
+
+
+
+
+
+
+app.get("/signUp", (request, response) => {
+    
+
+    let {username, password} = request.body;
+
+    
+    result = "hello";//await createUser(client, databaseAndCollection, username, password)
+
+    //process.stdout.write(JSON.stringify(result));
+
+    let variables = {
+        
+    }
+
+    response.redirect("/");
+});
 
 
 app.post("/login", async (request, response) => {
