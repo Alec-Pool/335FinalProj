@@ -14,7 +14,7 @@ const path = require("path");
 process.stdin.setEncoding("utf8");
 
 
-
+process.stdout.write("Hello World!");
 
 
 
