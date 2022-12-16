@@ -38,7 +38,7 @@ app.get("/", (request, response) => {
     let baseURL = "http://" + request.get('host');
     //let baseURL = request.url;
     //process.stdout.write(String(baseURL) + "\n");
-
+    console.log("hello world");
     let variables = {
         'login': baseURL + "/login",
         'signUp': baseURL + "/signUp",
