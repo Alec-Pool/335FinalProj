@@ -69,6 +69,28 @@ app.post("/signUp", (request, response) => {
 });
 
 
+
+
+app.post("/login", async (request, response) => {
+    let {username, password} = request.body;
+
+   
+    
+    result = await loginUser(client, databaseAndCollection, username, password);
+
+    if (result) {
+        //process.stdout.write(JSON.stringify(result));
+        status = result["username"];
+    } else {
+        process.stdout.write("\nUser Doesn't Exist\n");
+        status = "User Doesn't Exist";
+    }
+    
+
+    response.redirect("/");
+});
+
+
 app.listen(portNumber);
 
 
@@ -128,24 +150,6 @@ main();
 
 
 
-app.post("/login", async (request, response) => {
-    let {username, password} = request.body;
-
-   
-    
-    result = await loginUser(client, databaseAndCollection, username, password);
-
-    if (result) {
-        //process.stdout.write(JSON.stringify(result));
-        status = result["username"];
-    } else {
-        process.stdout.write("\nUser Doesn't Exist\n");
-        status = "User Doesn't Exist";
-    }
-    
-
-    response.redirect("/");
-});
 
 
 async function loginUser(client, databaseAndCollection, inputUsername, inputPassword) {
