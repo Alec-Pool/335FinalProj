@@ -103,7 +103,7 @@ app.post("/signUp", async (request, response) => {
     let {username, password} = request.body;
 
     
-    result = await createUser(client, databaseAndCollection, username, password)
+    result = "hello";//await createUser(client, databaseAndCollection, username, password)
 
     //process.stdout.write(JSON.stringify(result));
 
@@ -114,20 +114,6 @@ app.post("/signUp", async (request, response) => {
     response.redirect("/");
 });
 
-
-
-async function createUser(client, databaseAndCollection, username, password) {
-    let newUser = {
-        'username': username,
-        'password': password
-    }
-
-    const result = await client.db(databaseAndCollection.db).collection(databaseAndCollection.collection).insertOne(newUser);
-
-    return result;
-
-    //process.stdout.write(`\nApplication entry created with id ${result.insertedId}\n`);
-}
 
 
 
@@ -163,6 +149,25 @@ async function loginUser(client, databaseAndCollection, inputUsername, inputPass
                         .findOne(filter);
     return result;
 }
+
+
+
+
+
+
+async function createUser(client, databaseAndCollection, username, password) {
+    let newUser = {
+        'username': username,
+        'password': password
+    }
+
+    const result = await client.db(databaseAndCollection.db).collection(databaseAndCollection.collection).insertOne(newUser);
+
+    return result;
+
+    //process.stdout.write(`\nApplication entry created with id ${result.insertedId}\n`);
+}
+
 
 
 
